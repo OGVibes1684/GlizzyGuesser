@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+         body{
+            background-image: url('../Images/HotDogBackground.gif');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document Title</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../Template/index.html">
 </head>
 <body>
-    
-    <!-- Your content goes here -->
-
-    <script src="script.js"></script>
+    <button onclick="myfunction()" id="WelcomeButton">Welcome!</button>
+    <div id="first">
+      <p>
+        <audio>
+          <embed name="Hotdog" src="../Audio/Hotdog.mp3">
+        </audio>
+        <input
+          type="file"
+          accept="image/*"
+          name="image"
+          id="file"
+          onchange="loadFile(event)"
+        />
+      </p>
+      <p>
+        <img id="output" width="200" height="200" />
+      </p>
+    </div>
+    <script src="../scripts.js"></script>
 </body>
 </html>

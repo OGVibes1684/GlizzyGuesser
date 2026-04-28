@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "node.js": "^0.0.1-security",
-    "openai": "^6.34.0"
+    "openai": "^6.34.0",
+    "package.json": "^2.0.1"
   }
 }
