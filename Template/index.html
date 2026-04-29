@@ -1,19 +1,24 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Glizzy Guesser</title>
-    <link rel="stylesheet" href="/css/style.css" />
-  </head>
-  <body>
-    <!--
-Source - https://stackoverflow.com/a/60203795
-Posted by Dinesh
-Retrieved 2026-04-27, License - CC BY-SA 4.0
--->
-    <div class="first">
+<head>
+    <style>
+         body{
+            background-image: url('../Images/HotDogBackground.gif');
+            background-attachment: fixed;
+            background-size: cover;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../Template/index.html">
+</head>
+<body>
+    <button onclick="myfunction()" id="WelcomeButton">Welcome!</button>
+    <div id="first">
       <p>
+        <audio>
+          <embed name="Hotdog" src="../Audio/Hotdog.mp3">
+        </audio>
         <input
           type="file"
           accept="image/*"
@@ -22,8 +27,10 @@ Retrieved 2026-04-27, License - CC BY-SA 4.0
           onchange="loadFile(event)"
         />
       </p>
-      <p><img id="output" width="200" height="200" /></p>
+      <p>
+        <img id="output" width="200" height="200" />
+      </p>
     </div>
-    <script src="/javascript/script.js"></script>
-  </body>
+    <script src="../scripts.js"></script>
+</body>
 </html>
