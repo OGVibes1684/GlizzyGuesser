@@ -4,3 +4,15 @@
     align-items: center;
     border-radius: 20px;
 }
+.buttonContainer{
+  height: 200px;
+  position: relative;
+}
+.buttonCenter{
+  margin: 0;
+  position: absolute;
+  top: 600px;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
