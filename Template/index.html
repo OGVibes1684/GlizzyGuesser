@@ -1,36 +1,39 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
+  <head>
     <style>
-         body{
-            background-image: url('../Images/HotDogBackground.gif');
-            background-attachment: fixed;
-            background-size: cover;
-        }
+      body {
+        background-image: url("../Images/HotDogBackground.gif");
+        background-attachment: fixed;
+        background-size: cover;
+      }
     </style>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Template/index.html">
-</head>
-<body>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../Template/index.html" />
+  </head>
+
+  <body>
     <button onclick="myfunction()" id="WelcomeButton">Welcome!</button>
+    <audio>
+      <embed name="Hotdog" src="../Audio/Hotdog.mp3" />
+    </audio>
     <div id="first">
-      <p>
-        <audio>
-          <embed name="Hotdog" src="../Audio/Hotdog.mp3">
-        </audio>
-        <input
-          type="file"
-          accept="image/*"
-          name="image"
-          id="file"
-          onchange="loadFile(event)"
-        />
-      </p>
+      <label id="drop-area">
+        <p>
+          <input
+            type="file"
+            accept="image/*"
+            name="image"
+            id="file"
+            onchange="loadFile(event)"
+          />
+        </p>
+      </label>
       <p>
         <img id="output" width="200" height="200" />
       </p>
     </div>
     <script src="../scripts.js"></script>
-</body>
+  </body>
 </html>
