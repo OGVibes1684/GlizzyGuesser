@@ -1,7 +1,7 @@
 /*import OpenAI from 'openai';
 import fs from 'fs';
 
-const client = new OpenAI({apiKey: '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'});
+const client = new OpenAI({apiKey: ''});
 */
 const inputFile = document.getElementById("input-file");
 const dropArea = document.getElementById("drop-area");
