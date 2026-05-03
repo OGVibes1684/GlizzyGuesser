@@ -1,7 +1,9 @@
 {
   "dependencies": {
+    "dotenv": "^17.4.2",
     "node.js": "^0.0.1-security",
     "openai": "^6.34.0",
+    "package": "^1.0.1",
     "package.json": "^2.0.1"
   }
 }

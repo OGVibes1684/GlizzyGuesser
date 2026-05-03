@@ -1,34 +1,31 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <style>
-      body {
-        background-image: url("../Images/HotDogBackground.gif");
-        background-attachment: fixed;
-        background-size: cover;
-      }
-    </style>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css" />
-  </head>
-  <body>
-    <div id="first">
-      <p>
-        <input
-          type="file"
-          accept="image/*"
-          name="image"
-          id="file"
-          onchange="loadFile(event)"
-        />
-      </p>
-      <div id="first">
-        <p>
-          <img id="output" width="200" height="200" />
-        </p>
+
+<head>
+  <style>
+    body {
+      background-image: url("../Images/HotDogBackground.gif");
+      background-attachment: fixed;
+      background-size: cover;
+    }
+  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+  <div id="first">
+    <label for="input-file" id="drop-area">
+      <input type="file" accept="image/png, image/jpeg, image/jpg, image/gif" id="input-file" hidden/>
+      <div id="img-view">
+        <img src="">
+        <p>Drag and drop or click here to <br>upload an image with a hot dog</p>
+        <span>Upload any images from your desktop</span>
       </div>
-      <script src="../scripts.js"></script>
-    </div>
-  </body>
+    </label>
+    <script src="../scripts.js"></script>
+  </div>
+</body>
+
 </html>

@@ -1,15 +1,56 @@
-import OpenAi from 'openai';
-const dropArea = getElementById("drop-area");
-//considering editing this upload function but it works so maybe not
-var loadFile = function (event) {
-    var image = document.getElementById("output");
-    image.src = URL.createObjectURL(event.target.files[0]);
-};
+/*import OpenAI from 'openai';
+import fs from 'fs';
+
+const client = new OpenAI({apiKey: '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'});
+*/
+const inputFile = document.getElementById("input-file");
+const dropArea = document.getElementById("drop-area");
+const imageView = document.getElementById("img-view");
+/*const base64Image = fs.readFileSync(inputFile, "base64");
+
+const response = await client.responses.create({
+    model: "gpt-4.1-mini",
+    input: [
+        {
+            role: "user",
+            content: [
+                { 
+                    type: "input_text", 
+                    text: "Does this image have a hot dog in it? Answer in either yes or no." },
+                {
+                    type: "input_image",
+                    image_url: `data:image/jpeg;base64,${base64Image}`,
+                },
+            ],
+        },
+    ],
+});
+
+console.log(response.output_text);*/
+
+inputFile.addEventListener("change", uploadImage);
+
+function uploadImage(){
+    let imgLink = URL.createObjectURL(inputFile.files[0]);
+    imageView.style.backgroundImage = `url(${imgLink})`;
+    imageView.textContent = "";
+    imageView.style.border = 0;
+}
+
+dropArea.addEventListener("dragover", function(e){
+    e.preventDefault();
+});
+dropArea.addEventListener("drop", function(e){
+    e.preventDefault();
+    inputFile.files = e.dataTransfer.files;
+    uploadImage();
+});
+
 function counter() {
     //include openai calls to check image upload
     count = count + 1;
     if (count >= 3) {
-        document.getElementById("first").innerText = "You got submitted than 3 incorrect images.";
+        alert("You submitted at least more than 3 incorrect images.");
     }
     return count;
 }
