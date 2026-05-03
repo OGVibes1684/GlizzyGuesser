@@ -1,7 +1,7 @@
 /*import OpenAI from 'openai';
 import fs from 'fs';
 
-const client = new OpenAI({apiKey: ''});
+const client = new OpenAI();
 */
 const inputFile = document.getElementById("input-file");
 const dropArea = document.getElementById("drop-area");
