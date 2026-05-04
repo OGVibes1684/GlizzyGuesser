@@ -8,9 +8,9 @@ const welcomeButton = document.getElementById("welcomeButton");
 const logo = document.getElementById("logo");
 const correctImg = document.getElementById("correct");
 const incorrectImg = document.getElementById("incorrect");
-
+const hotdogRefs = document.getElementById("hotdogRefs");
 // Audio — plays when the answer is a hot dog
-const hotdogSound = new Audio('Hotdog.mp3');
+const hotdogSound = new Audio('Audio/Hotdog.mp3');
 
 // incorrectCount persists across page navigations using sessionStorage
 // so the count doesn't reset when the user comes back from correct/incorrect.html
@@ -95,11 +95,6 @@ function handleUpload(file) {
       }
 
       if (answer.includes('yes')) {
-<<<<<<< HEAD
-        hotdogSound.play().catch(() => {});
-        setTimeout(() => window.location.href = 'correct.html', 800);
-      } else {
-=======
         correctImg.style.display = 'block'
         setTimeout(() => {
           correctImg.style.display = 'none'
@@ -110,7 +105,6 @@ function handleUpload(file) {
           incorrectImg.style.display = 'none'
         }, 4000)
         // Increment counter, save it, then redirect to the incorrect page
->>>>>>> 3fee7ea375b5b937ce3569d8d6ba6c3039179622
         incorrectCount++;
         sessionStorage.setItem('incorrectCount', incorrectCount);
         updateCounter();
@@ -146,3 +140,14 @@ function updateCounter() {
       `${incorrectCount} non-hot-dog submission${incorrectCount !== 1 ? 's' : ''} so far.`;
   }
 }
+
+ //  ── Other Functions ──────────────────────────────────────────────────────────────────
+
+ function toggleVisibility(){
+    welcomeButton.style.display = "none";
+    logo.style.display = "none";
+    placeholder.style.display = "flex";
+    dropArea.style.display = "block";
+    hotdogRefs.style.display = "block";
+    hotdogSound.play();
+ }
