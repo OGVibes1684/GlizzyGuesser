@@ -62,7 +62,7 @@ function handleUpload(file) {
     const mimeType = meta.match(/:(.*?);/)[1];
 
     try {
-      const response = await fetch('check-hotdog', {
+      const response = await fetch('/check-hotdog', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ base64Image, mimeType })
