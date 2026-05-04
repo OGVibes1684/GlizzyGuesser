@@ -8,7 +8,7 @@ const welcomeButton = document.getElementById("welcomeButton");
 const logo = document.getElementById("logo");
 const correctImg = document.getElementById("correct");
 const incorrectImg = document.getElementById("incorrect");
-
+const hotdogRefs = document.getElementById("hotdogRefs");
 // Audio — plays when the answer is a hot dog
 const hotdogSound = new Audio('Audio/Hotdog.mp3');
 
@@ -146,5 +146,8 @@ function updateCounter() {
  function toggleVisibility(){
     welcomeButton.style.display = "none";
     logo.style.display = "none";
+    placeholder.style.display = "flex";
+    dropArea.style.display = "block";
+    hotdogRefs.style.display = "block";
     hotdogSound.play();
  }

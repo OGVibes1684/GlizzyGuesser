@@ -1,9 +1,9 @@
 #placeholder {
   width: 100%;
   min-height: 300px;
-  display: flex;
   align-items: center;
   justify-content: center;
+  display: none;
 }
 
 #drop-area {
@@ -13,7 +13,7 @@
   text-align: center;
   border-radius: 20px;
   cursor: pointer;
-  display: block;
+  display: none;
 }
 
 #img-view {
@@ -104,7 +104,7 @@ main {
 }
 
 #hotdogRefs{
-  display: block;
+  display: none;
   position: relative;
   left: 1200px;
   top:100px;
