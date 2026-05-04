@@ -10,7 +10,7 @@ const correctImg = document.getElementById("correct");
 const incorrectImg = document.getElementById("incorrect");
 
 // Audio — plays when the answer is a hot dog
-const hotdogSound = new Audio('Hotdog.mp3');
+const hotdogSound = new Audio('Audio/Hotdog.mp3');
 
 // incorrectCount persists across page navigations using sessionStorage
 // so the count doesn't reset when the user comes back from correct/incorrect.html
@@ -140,3 +140,11 @@ function updateCounter() {
       `${incorrectCount} non-hot-dog submission${incorrectCount !== 1 ? 's' : ''} so far.`;
   }
 }
+
+ //  ── Other Functions ──────────────────────────────────────────────────────────────────
+
+ function toggleVisibility(){
+    welcomeButton.style.display = "none";
+    logo.style.display = "none";
+    hotdogSound.play();
+ }
