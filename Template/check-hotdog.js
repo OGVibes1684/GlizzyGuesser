@@ -1,3 +1,4 @@
+
 export async function onRequestPost(context) {
   try {
     const { base64Image, mimeType } = await context.request.json();
