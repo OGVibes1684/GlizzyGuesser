@@ -59,5 +59,65 @@ main {
 }
 
 #drop-area {
-  
+  margin: 0 auto;
+}
+
+#welcomeButton{
+  display: flex;
+  margin: 0 auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 60px;
+  padding-right: 60px;
+  border-color: red;
+  background-color: yellow;
+  font-size: large;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: red;
+}
+
+#logo{
+  display: block;
+  height: 400px;
+  width: 1200px;
+  margin:0 auto;
+
+}
+
+#result{
+  display: flex;
+  position:relative;
+  align-content: center;
+  justify-content: center;
+  bottom: 400px;
+}
+#correct{
+  display: none;
+  position: absolute;
+  height: 400px;
+}
+
+#incorrect{
+  display: none;
+  position: absolute;
+  height: 400px;
+}
+
+#hotdogRefs{
+  display: block;
+  position: relative;
+  left: 1200px;
+  top:100px;
+}
+
+#hotdogButton{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  border-color: red;
+  background-color: yellow;
+  font-size: small;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: red;
 }
