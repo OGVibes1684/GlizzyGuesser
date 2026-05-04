@@ -10,7 +10,7 @@ export async function onRequestPost(context) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${context.env}` //test
+        'Authorization': `Bearer ${context.env.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}`
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
