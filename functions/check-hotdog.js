@@ -1,8 +1,4 @@
 export async function onRequestPost(context) {
-  return new Response(JSON.stringify({
-    keys: Object.keys(context.env),
-    hasKey: !!context.env.OPENAI_API_KEY
-  }), { headers: { 'Content-Type': 'application/json' } });
   try {
     const { base64Image, mimeType } = await context.request.json();
 
@@ -10,12 +6,10 @@ export async function onRequestPost(context) {
       return json({ error: 'Missing base64Image or mimeType.' }, 400);
     }
 
-    // Call the OpenAI API directly via fetch — no SDK needed
     const openaiRes = await fetch('https://api.openai.com/v1/chat/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        // context.env is where Cloudflare injects your environment variables
         'Authorization': `Bearer ${context.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
@@ -25,16 +19,8 @@ export async function onRequestPost(context) {
           {
             role: 'user',
             content: [
-              {
-                type: 'text',
-                text: 'Does this image contain a hot dog? Reply with only the word "yes" or "no".'
-              },
-              {
-                type: 'image_url',
-                image_url: {
-                  url: `data:${mimeType};base64,${base64Image}`
-                }
-              }
+              { type: 'text', text: 'Does this image contain a hot dog? Reply with only the word "yes" or "no".' },
+              { type: 'image_url', image_url: { url: `data:${mimeType};base64,${base64Image}` } }
             ]
           }
         ]
@@ -55,7 +41,6 @@ export async function onRequestPost(context) {
   }
 }
 
-// Small helper so we don't repeat Response boilerplate
 function json(data, status = 200) {
   return new Response(JSON.stringify(data), {
     status,
