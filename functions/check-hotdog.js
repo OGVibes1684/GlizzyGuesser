@@ -1,4 +1,5 @@
-
+import { env } from "cloudflare:workers";
+console.log(`Hi, ${env.Name}`);
 export async function onRequestPost(context) {
   try {
     const { base64Image, mimeType } = await context.request.json();
