@@ -20,5 +20,39 @@
         </form>
       </div>
     </div>
-  </body>
+
+    <img id = "logo" src = Images/GlizzyGuesserLogo.gif>  
+    
+    <audio id = "hotdogSong">
+      <source src = "Audio/Hotdog.mp3" type="audio/mpeg">
+    
+    </audio>
+  
+    <label for="input-file" id="drop-area">
+      <input type="file" accept="image/png, image/jpeg, image/jpg, image/gif, image/webp" id="input-file" hidden />
+
+      <!-- Preview area -->
+      <div id="img-view">
+        <div id="placeholder">
+          <span class="icon">📂</span>
+          <p>Drag & drop or <strong>click to upload</strong></p>
+          <span class="hint">PNG, JPG, GIF, WEBP supported</span>
+        </div>
+      </div>
+    </label>
+
+    <!-- Result banner -->
+    <div id="result" class="hidden">
+      <img id = "correct" src="Images/Correct-5-4-2026.gif">
+      <img id = "incorrect" src="Images/Oops-Try-Again-5-4-2026.gif">
+    </div>
+    <div id="hotdogRefs">
+      <form action="https://www.webstaurantstore.com/franks-beef-8-1-7-1-8-6-5lb-sabrett-case/871SAB743.html">
+        <button type = "submit" id="hotdogButton">click here for more hotdogs</button>
+      </form>
+    </div>
+    <!-- Incorrect submission counter -->
+    <p id="counter-msg"></p>
+    <script src="main.js"></script>
+</body>
 </html>
