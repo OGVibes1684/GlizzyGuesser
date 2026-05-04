@@ -12,7 +12,7 @@ export async function onRequestPost(context) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `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`
+        'Authorization': `Bearer ${context.env.OPENAI_API_KEY}`
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
