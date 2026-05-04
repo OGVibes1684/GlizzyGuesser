@@ -1,4 +1,6 @@
 export async function onRequestPost(context) {
+  console.log('ENV KEYS:', JSON.stringify(Object.keys(context.env)));
+  console.log('API KEY:', context.env.OPENAI_API_KEY);
   try {
     const { base64Image, mimeType } = await context.request.json();
 
