@@ -1,5 +1,3 @@
-import { env } from "cloudflare:workers";
-console.log(`Hi, ${env.Name}`);
 export async function onRequestPost(context) {
   try {
     const { base64Image, mimeType } = await context.request.json();
@@ -12,7 +10,7 @@ export async function onRequestPost(context) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${context.env.OPENAI_API_KEY}`
+        'Authorization': `Bearer ${context.env}` //test
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
