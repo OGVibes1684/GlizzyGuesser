@@ -1,3 +1,8 @@
 name = "glizzy-guesser"
 pages_build_output_dir = "Template"
 functions_directory = "functions"
+
+[[secrets_store_secrets]]
+binding = "secretStore"
+store_id = "6452ba2b26b74b13a686cbad56a16305"
+secret_name = "OPENAI_API_KEY"
