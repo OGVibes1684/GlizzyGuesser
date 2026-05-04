@@ -79,6 +79,11 @@ function handleUpload(file) {
       const data = await response.json();
       const answer = data.result; // "yes" or "no"
 
+      // If result is missing, show the full response so we can debug it
+      if (!answer) {
+        throw new Error('Unexpected response: ' + JSON.stringify(data));
+      }
+
       if (answer.includes('yes')) {
         // Play audio then redirect to the correct page
         hotdogSound.play().catch(() => {}); // .catch prevents crash if browser blocks autoplay
