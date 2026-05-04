@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "glizzy-guesser1",
+  "compatibility_date": "2026-05-04",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "Template"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
