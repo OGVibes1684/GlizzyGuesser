@@ -54,42 +54,46 @@ function handleUpload(file) {
 
   counterMsg.textContent = '🔍 Checking...';
 
-  // Read file as base64 using FileReader — the correct browser API for this
   const reader = new FileReader();
 
   reader.onload = async (e) => {
-    // e.target.result looks like: "data:image/jpeg;base64,/9j/4AAQ..."
     const dataUrl = e.target.result;
     const [meta, base64Image] = dataUrl.split(',');
-    const mimeType = meta.match(/:(.*?);/)[1]; // e.g. "image/jpeg"
+    const mimeType = meta.match(/:(.*?);/)[1];
 
     try {
-      // Send to the Cloudflare Pages Function at /check-hotdog
       const response = await fetch('/check-hotdog', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ base64Image, mimeType })
       });
 
-      if (!response.ok) {
-        const err = await response.json();
-        throw new Error(err.error || 'Server error');
+      // Read as raw text first so we can see exactly what came back
+      // even if it's an HTML error page instead of JSON
+      const rawText = await response.text();
+
+      let data;
+      try {
+        data = JSON.parse(rawText);
+      } catch {
+        // Not JSON — likely a Cloudflare HTML error page
+        throw new Error('Not JSON. Raw response: ' + rawText.slice(0, 300));
       }
 
-      const data = await response.json();
-      const answer = data.result; // "yes" or "no"
+      if (!response.ok) {
+        throw new Error(data.error || 'Server error');
+      }
 
-      // If result is missing, show the full response so we can debug it
+      const answer = data.result;
+
       if (!answer) {
-        throw new Error('Unexpected response: ' + JSON.stringify(data));
+        throw new Error('No result field. Got: ' + JSON.stringify(data));
       }
 
       if (answer.includes('yes')) {
-        // Play audio then redirect to the correct page
-        hotdogSound.play().catch(() => {}); // .catch prevents crash if browser blocks autoplay
+        hotdogSound.play().catch(() => {});
         setTimeout(() => window.location.href = 'correct.html', 800);
       } else {
-        // Increment counter, save it, then redirect to the incorrect page
         incorrectCount++;
         sessionStorage.setItem('incorrectCount', incorrectCount);
         updateCounter();
