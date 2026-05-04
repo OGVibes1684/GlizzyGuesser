@@ -4,6 +4,10 @@ const dropArea    = document.getElementById('drop-area');
 const imgView     = document.getElementById('img-view');
 const placeholder = document.getElementById('placeholder');
 const counterMsg  = document.getElementById('counter-msg');
+const welcomeButton = document.getElementById("welcomeButton");
+const logo = document.getElementById("logo");
+const correctImg = document.getElementById("correct");
+const incorrectImg = document.getElementById("incorrect");
 
 // Audio — plays when the answer is a hot dog
 const hotdogSound = new Audio('Hotdog.mp3');
@@ -91,9 +95,22 @@ function handleUpload(file) {
       }
 
       if (answer.includes('yes')) {
+<<<<<<< HEAD
         hotdogSound.play().catch(() => {});
         setTimeout(() => window.location.href = 'correct.html', 800);
       } else {
+=======
+        correctImg.style.display = 'block'
+        setTimeout(() => {
+          correctImg.style.display = 'none'
+        }, 4000)
+      }else {
+        incorrectImg.style.display = 'block'
+        setTimeout(() => {
+          incorrectImg.style.display = 'none'
+        }, 4000)
+        // Increment counter, save it, then redirect to the incorrect page
+>>>>>>> 3fee7ea375b5b937ce3569d8d6ba6c3039179622
         incorrectCount++;
         sessionStorage.setItem('incorrectCount', incorrectCount);
         updateCounter();
