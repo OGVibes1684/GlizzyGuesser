@@ -1,9 +1,11 @@
 {
   "dependencies": {
     "dotenv": "^17.4.2",
+    "express": "^5.2.1",
     "node.js": "^0.0.1-security",
     "openai": "^6.34.0",
     "package": "^1.0.1",
-    "package.json": "^2.0.1"
+    "package.json": "^2.0.1",
+    "wrangler": "^3.0.0"
   }
 }
