@@ -2,6 +2,8 @@ export async function onRequestPost(context) {
   try {
     const { base64Image, mimeType } = await context.request.json();
 
+    const APIkey = await env.secretStore.get();
+
     if (!base64Image || !mimeType) {
       return json({ error: 'Missing base64Image or mimeType.' }, 400);
     }
@@ -10,7 +12,7 @@ export async function onRequestPost(context) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${context.env.OPENAI_API_KEY}`
+        'Authorization': `Bearer ${APIkey}`
       },
       body: JSON.stringify({
         model: 'gpt-4o-mini',
